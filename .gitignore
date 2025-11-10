@@ -1,0 +1,5 @@
+# .env file
+.env
+
+# Dependencies
+node_modules/
