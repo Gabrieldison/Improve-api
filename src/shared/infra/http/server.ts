@@ -9,9 +9,8 @@ async function main() {
     console.log("🟢 Database connected successfully");
     client.release();
 
-    // Registrar rotas ANTES de iniciar o servidor
+    // Register routes BEFORE starting the server
 
-    // Iniciar servidor DEPOIS de registrar as rotas
     app.listen(Number(port), () => {
       console.log(`🚀 Server of improve is active and running on port ${port}`);
     });
