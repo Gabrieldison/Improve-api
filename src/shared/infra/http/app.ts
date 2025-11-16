@@ -5,22 +5,6 @@ type RouteHandler = (
   res: http.ServerResponse
 ) => Promise<void>;
 
-async function readBody(req: http.IncomingMessage): Promise<string> {
-  return new Promise((resolve, reject) => {
-    let body = "";
-
-    req.on("data", (chunk: Buffer) => {
-      body += chunk.toString();
-    });
-
-    req.on("end", () => {
-      resolve(body);
-    });
-
-    req.on("error", reject);
-  });
-}
-
 function createApp() {
   const routes: Record<string, RouteHandler> = {}; // Record is a type that represents a record of a key-value pair, where the key is a string and the value is a RouteHandler (function)
 
@@ -82,6 +66,3 @@ function createApp() {
 }
 
 export const app = createApp();
-
-export { readBody };
-
