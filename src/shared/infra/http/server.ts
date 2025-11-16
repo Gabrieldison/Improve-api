@@ -1,3 +1,4 @@
+import { registerAreaRoutes } from "@/modules/areas/area.routes";
 import { pool } from "@/shared/infra/database/connection";
 import { app } from "@/shared/infra/http/app";
 
@@ -10,6 +11,7 @@ async function main() {
     client.release();
 
     // Register routes BEFORE starting the server
+    registerAreaRoutes();
 
     app.listen(Number(port), () => {
       console.log(`🚀 Server of improve is active and running on port ${port}`);
